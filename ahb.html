@@ -167,19 +167,19 @@ AHB_fast_out <- <b>AHB_fast_match</b>(data = data,  holdout = holdout, treated_c
 						  <table class="table" style="margin-bottom:15px;margin-top:15px;width:95%;margin-left:auto;margin-right:auto">
 							<tbody>
 								<tr>
-									<td><span style="font-weight:600">AHB_fast_<wbr>out<wbr>$data:</span></td>
+									<td class="w-25"><span style="font-weight:600">AHB_<wbr>fast_<wbr>out<wbr>$data:</span></td>
 									<td>Data set was matched by <b>AHB_fast_match()</b>. If holdout is not a numeric value, the <b>AHB_fast_out$data</b> is the same as the data input into <b>AHB_fast_match()</b>.  If holdout is a numeric scalar between 0 and 1,  <b>AHB_fast_out$data</b> is the remaining proportion of data that were matched.</td>
 								</tr><tr>
-									<td><span style="font-weight:600">AHB_fast_<wbr>out<wbr>$units_id:</span></td>
+									<td><span style="font-weight:600">AHB_<wbr>fast_<wbr>out<wbr>$units_id:</span></td>
 									<td>A integer vector with unit_id for test treated units</td>
 								</tr><tr>
-									<td><span style="font-weight:600">AHB_fast_<wbr>out<wbr>$CATE:</span></td>
+									<td><span style="font-weight:600">AHB_<wbr>fast_<wbr>out<wbr>$CATE:</span></td>
 									<td>A numeric vector with the conditional average treatment effect estimates for every test treated unit in its matched group in <b>AHB_fast_out$MGs</b></td>
 								</tr><tr>
-									<td><span style="font-weight:600">AHB_fast_<wbr>out<wbr>$bins:</span></td>
+									<td><span style="font-weight:600">AHB_<wbr>fast_<wbr>out<wbr>$bins:</span></td>
 									<td>A numeric vector with the conditional average treatment effect estimates for every test treated unit in its matched group in <b>AHB_fast_out$MGs</b></td>
 								</tr><tr>
-									<td><span style="font-weight:600">AHB_fast_<wbr>out<wbr>$MGs:</span></td>
+									<td><span style="font-weight:600">AHB_<wbr>fast_<wbr>out<wbr>$MGs:</span></td>
 									<td>A list of all the matched groups formed by <b>AHB_fast_match()</b>. For each test treated unit, each row contains all unit_id of the other units that fall into its box, including itself.</td>
 								</tr>
 							</tbody>
