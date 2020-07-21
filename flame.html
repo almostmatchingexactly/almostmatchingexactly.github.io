@@ -65,8 +65,6 @@
 				<div class="container">
 					Please note that this package requires the installation of R version 3.3 or higher. 
 					If you do not already have an updated version of R installed on your computer, you can find instructions on how to download the latest version <a href="https://www.r-project.org/" target="_blank">here</a>.
-					This package also contains Python dependencies which require installation of Python version 2.7 or higher. 
-					If you do not already have an updated version of Python installed on your computer, you can download the latest version <a href="https://www.python.org/downloads/" target="_blank">here</a>.
 					Also note that this package only includes the bit-vector implementation of FLAME, so it cannot be applied to database management systems.
 					<!-- Additionally, for implementation with database systems, this package provides two approaches: SQLite and PostgreSQL. If your computer does not have PostgreSQL already installed, -->
 					<!-- you can download it <a target="_blank" href="https://www.postgresql.org/download/">here</a>.  -->
@@ -74,35 +72,31 @@
 				</div>
 			    <h3 style="padding-top: 15px">Installation</h3>
 				  <div class="container">
-					<p>FLAME, along with its R dependencies, can be installed directly from CRAN via the following command:</p>
-					<div class="code"><pre style="white-space:nowrap"><span id="codesampleR1">install.packages('FLAME')</span></pre>
-					<button class="codeButton" onclick="codeCopy('codesampleR1');showToast();borderFix()"><i class="fa fa-clipboard" style="font-size:16px"></i></button></div>
-					<div id="toast">Copied to clipboard!</div>
-					<p>Alternatively, this package can be downloaded from <a target="_blank" href="https://github.com/vittorioorlandi/FLAME">the author's Github</a> using the following command:</p>
+					<p>FLAME should be downloaded from <a target="_blank" href="https://github.com/vittorioorlandi/FLAME">the author's Github</a> using the following command:</p>
 					<div class="code"><pre style="white-space:nowrap"><span id="codesampleR2">devtools::install_github('https://github.com/vittorioorlandi/FLAME')</span></pre><button class="codeButton" onclick="codeCopy('codesampleR2');showToast();borderFix()"><i class="fa fa-clipboard" style="font-size:16px"></i></button></div>
 				  </div>
 				<h3>Input Data Format</h3>
 				  <div class="container">
-				    To begin using the R-FLAME algorithm, first ensure that your dataset is stored as an <b>R Data Frame</b>. 
-					Remember, all covariates should be catagorical and represented as <i>factor</i> R data types. If there are continuous covariates, they will 
-					be automatically regrouped by the <span class="function">FLAME</span> algorithm. In addition to the covariate columns,
-					your dataset should include a column of binary <i>factor</i> R data types which specify whether a unit is treated (1) or control (0) 
-					and a column of <i>numeric</i> data types which specify unit outcomes. If no outcome column is provided,
-					the algorithm will still match the data, but will not be able to estimate any treatment effects.
-					Though are no requirements for covariate column names, the columns should be ordered as shown below. 
-					Below is a sample dataset in the required format:
+				  	Input data must be stored in a <i>data frame</i>, which must contain covariates and treatment, and may contain an outcome column. 
+				  	Covariates are assumed to be <b>categorical</b> and will be coerced to factors, though they may be passed as either factors or numerics. 
+				  	If you wish to use continuous covariates for matching, they should be binned prior to being passed to <span class="function">FLAME</span>.
+					Treatment must be denoted by a logical or binary numeric column. The outcome column, if supplied, will be treated as continuous if numeric, 
+					as binary if a two-level factor or numeric with two unique values, and as multi-class if a factor with more than two levels.
+					If no outcome column is provided, matching will still be done, but CATEs will not be estimated. They will also not be estimated if the
+					outcome is passed as a factor.
+					Below is a sample dataset satisfying the format requirements:
 					<div class="input-data-container"> 
 					  <div class="row" style="width:100%; margin-right:-15px">
 						<div class="col">
 						  <table class="table table-striped" style="margin-bottom:15px;margin-top:15px;width:95%;margin-left:auto;margin-right:auto">
 							<thead>
 							  <tr style="text-align:center">
-								<th>x_1 <span style="font-weight:normal;font-style:italic">(factor)</span></th>
-								<th>x_2 <span style="font-weight:normal;font-style:italic">(factor)</span></th>
+								<th>x_1 <span style="font-weight:normal;font-style:italic"></span></th>
+								<th>x_2 <span style="font-weight:normal;font-style:italic"></span></th>
 								<th>...</th>
-								<th>x_m <span style="font-weight:normal;font-style:italic">(factor)</span></th>
-								<th>treated <span style="font-weight:normal;font-style:italic">(factor)</span></th>
-								<th>outcome <span style="font-weight:normal;font-style:italic">(numeric)</span></th>
+								<th>x_m <span style="font-weight:normal;font-style:italic"></span></th>
+								<th>treated <span style="font-weight:normal;font-style:italic"></span></th>
+								<th>outcome <span style="font-weight:normal;font-style:italic"></span></th>
 							  </tr>
 							</thead>
 							<tbody>
@@ -147,7 +141,7 @@
 				  <h3>Usage</h3>
 				  <div class="container">
 				    To generate sample data for exploring FLAMEs functionality, use the function <span class="function">gen_data</span> as shown below. 
-					Remember to load the 'FLAME' package a shown in line 1 before calling any of the functions discussed in this section.
+					Remember to load the 'FLAME' package as shown in line 1 before calling any of the functions discussed in this section.
 					This example generates a data frame with n = 250 units and p = 5 covariates:
 <span id="codesampleR0" style="display:none">library('FLAME')
 
@@ -156,7 +150,6 @@ data <- gen_data(n = 250, p = 5)</span>
 
 data <- <b>gen_data</b>(n = <span class="Rnumber">250</span>, p = <span class="Rnumber">5</span>)</pre>
 					<button class="codeButton" onclick="codeCopy('codesampleR0');showToast();borderFix()"><i class="fa fa-clipboard"></i></button></div>
-					Note that you can also write the generated dataset to a file by adjusting parameters detailed in the next section.
 					<br><br>
 					To run the algorithm, use the <span class="function">FLAME</span> function as shown in line 3. The required data parameter can either be
 					a path to a .csv file or a dataframe. In this example, a .csv file path is used:
@@ -219,7 +212,7 @@ ATT(FLAME_out = FLAME_out)</span>
 			<h3>FLAME - Parameters and Defaults</h3>
 				  <div class="container">
 <div class="pre-nonumbers" style="margin-top:15px"><b>FLAME</b>(data, holdout = <span class="Rnumber">0.1</span>, C = <span class="Rnumber">0.1</span>, treated_column_name = <span class="Rstring">&quot;treated&quot;</span>,
-     outcome_column_name = <span class="Rstring">&quot;outcome&quot;</span>, binning_method = <span class="Rstring">&quot;sturges&quot;</span>, PE_method = <span class="Rstring">&quot;ridge&quot;</span>,
+     outcome_column_name = <span class="Rstring">&quot;outcome&quot;</span>, PE_method = <span class="Rstring">&quot;ridge&quot;</span>,
      user_PE_fit = <span class="import">NULL</span>, user_PE_fit_params = <span class="import">NULL</span>, user_PE_predict = <span class="import">NULL</span>,
      user_PE_predict_params = <span class="import">NULL</span>, replace = <span class="import">FALSE</span>, verbose = <span class="Rnumber">2</span>, return_pe = <span class="import">FALSE</span>,
      return_bf = <span class="import">FALSE</span>, early_stop_iterations = <span class="import">Inf</span>, early_stop_epsilon = <span class="Rnumber">0.25</span>,
@@ -257,17 +250,11 @@ ATT(FLAME_out = FLAME_out)</span>
 								<td><b>outcome_<wbr>column_<wbr>name:</b><br>string, optional (default = 'outcome')</td>
 								<td>The name of the column which specifies each unit outcome.</td>
 							  </tr><tr>
-								<td><b>binning_<wbr>method:</b><br>string, optional (default = 'sturges')</td>
-								<td>The method used to determine number of bins for regrouping continuous covariates.<br>
-								If 'sturges', use Sturge's rule.<br>
-								If 'scott', use Scott's rule.<br>
-								If 'fd', use the Freedman-Diaconis rule.</td>
-						      </tr><tr>
 								<td><b>PE_<wbr>method:</b><br>string, optional (default = 'ridge')</td>
-								<td>The method used to cross-validate before the default predict method is used to estimate outcomes.<br>
+								<td>The method used to compute PE.<br>
 								If 'ridge', perform cross-validation using <a target="_blank" href="https://www.rdocumentation.org/packages/glmnet/versions/4.0/topics/cv.glmnet">glmnet::cv.glmnet</a> with default parameters.<br>
 								If 'xgb', perform cross-validation using <a target="_blank" href="https://www.rdocumentation.org/packages/xgboost/versions/1.0.0.2/topics/xgb.cv">xgboost::xgb.cv</a> with a wide range of parameter values
-								and determines best values with respect to root-mean-square error (RMSE) for continuous outcomes or binary missclassification rate for binary outcomes.</td>
+								and determines best values with respect to root-mean-square error (RMSE) (for continuous outcomes) or missclassification rate (for binary or multiclass outcomes).</td>
 							  </tr><tr>
 								<td><b>user_<wbr>PE_<wbr>fit:</b><br>function, optional (default = NULL): </td>
 								<td>Optional function to be used instead of those provided for in <b>PE_method</b> to fit unit outcomes from the covariates. 
@@ -318,7 +305,7 @@ ATT(FLAME_out = FLAME_out)</span>
 								one round of exact matching is performed before stopping.</td>
 							  </tr><tr>
 								<td><b>early_<wbr>stop_<wbr>epsilon:</b><br>numeric, optional (default = 0.25)</td>
-								<td>Nonnegative numeric denoting the maximum acceptable percent change in predictive error before the algorithm will stop iterating. Default corresponds to 25%.</td>
+								<td>Nonnegative numeric denoting the maximum acceptable percent change in predictive error <i>relative to that computed using all covariates</i> before the algorithm will stop iterating. Default corresponds to 25%.</td>
 							  </tr><tr>
 								<td><b>early_<wbr>stop_<wbr>control:</b><br>numeric, optional (default = 0)</td>
 								<td>Minimum acceptable proportion of unmatched control units after which the algorithm will stop iterating. Must be between 0 and 1.</td>
@@ -411,10 +398,10 @@ ATT(FLAME_out = FLAME_out)</span>
 								<td>Specifies whether the output of gen_data is stored as a .csv file according to the parameters <b>path</b> and <b>filename</b>.</td>
 							  </tr><tr>
 								<td class="pwidth"><b>path:</b><br>string, optional (default = getwd( ))</td>
-								<td>If <b>write</b> is True, specifies the location path of the file created by gen_data.</td>
+								<td>If <b>write</b> is TRUE, specifies the location path of the file created by gen_data.</td>
 							  </tr><tr>
 								<td class="pwidth"><b>filename:</b><br>string, optional (default = 'FLAME.csv')</td>
-								<td>If <b>write</b> is True, specifies the name of the file created by gen_data.</td>
+								<td>If <b>write</b> is TRUE, specifies the name of the file created by gen_data.</td>
 							  </tr><tr>
 								<td class="pwidth"><b>units:</b><br>numeric vector, required</td>
 								<td>Vector of indices for the units of interest for the functions MG and CATE.</td>
@@ -423,11 +410,11 @@ ATT(FLAME_out = FLAME_out)</span>
 								<td>The output of a call to FLAME.</td>
 							  </tr><tr>
 								<td class="pwidth"><b>multiple:</b><br>logical scalar, optional (default = FALSE)</td>
-								<td>If False (default), then the functions MG and CATE will only return objects pertaining to a unit's main matched group.<br>
-								If True, the aforementioned functions will return objects pertaining to every matched group containing a specified unit (only relevant if <b>replace</b>=True). </td>
+								<td>If FALSE (default), then the functions MG and CATE will only return objects pertaining to a unit's main matched group.<br>
+								If TRUE, the aforementioned functions will return objects pertaining to every matched group containing a specified unit (only relevant if <b>replace</b>=TRUE). </td>
 							  </tr><tr>
 								<td class="pwidth"><b>index_<wbr>only:</b><br>logical scalar, optional (default = FALSE)</td>
-								<td>If True, the function MG will return only the indices of the units in each matched group.</td>
+								<td>If TRUE, the function MG will return only the indices of the units in each matched group.</td>
 							  </tr>
 							</tbody>
 						  </table>
