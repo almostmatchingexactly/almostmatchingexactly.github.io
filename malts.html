@@ -291,10 +291,12 @@ plt.<span class="print">title</span>(<span class="string">'Matched Group for Uni
 				<h3>Plotting CATE against a Covariate</h3>
 		<div class="container">
 		We can also plot the CATE for different units against the values for a particular covariate. The following code plots CATE against Covariate X1. We can also obtain a best-fit polynomial; in the code below, we use a degree 2 polynomial.
-		<span id="codesample7" style="display:none">data_w_cate = df.join(m.CATE_df, rsuffix='_').drop(columns=['outcome_','treated_']) #joining cate dataframe with data
+		<span id="codesample7" style="display:none">data_w_cate=pd.concat([df, m.CATE_df], axis=1)
+data_w_cate = data_w_cate.drop(columns=['outcome','treated']) 
 sns.regplot( x='X1', y='avg.CATE', data=data_w_cate, scatter_kws={'alpha':0.5,'s':2}, line_kws={'color':'black'}, order=2 )</span>
 
-<div class="code" style="margin-top:15px"><pre>data_w_cate = df.join(m.CATE_df, rsuffix=<span class="string">'_'</span>).drop(columns=[<span class="string">'outcome_'</span>,<span class="string">'treated_'</span>]) 
+<div class="code" style="margin-top:15px"><pre>data_w_cate=pd.<span class="print">concat</span>([df, m.CATE_df], axis=1)
+data_w_cate = data_w_cate.<span class="print">drop</span>(columns=[<span class="string">'outcome'</span>,<span class="string">'treated'</span>]) 
 sns.<span class="print">regplot</span>( x=<span class="string">'X1'</span>, y=<span class="string">'avg.CATE'</span>, data=data_w_cate, scatter_kws={<span class="string">'alpha'</span>:0.5,<span class="string">'s'</span>:2}, line_kws={<span class="string">'color'</span>:<span class="string">'black'</span>}, order=2 )</pre><button class="codeButton" onclick="codeCopy('codesample7');showToast();borderFix()"><i class="fa fa-clipboard"></i></button></div>				
 		
 		</div><!--container over-->
