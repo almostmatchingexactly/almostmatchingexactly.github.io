@@ -93,8 +93,7 @@
 		  </div>
 		</div>
 		<div class="banner"><h1 class="title mt-4">Sample Data</h1></div>
-		<div style="width:100%;text-align:center;padding-top:30px"><span style="font-size:3rem"><i class="fa fa-cogs" aria-hidden="true"></i>  Coming soon!  <i class="fa fa-cogs" aria-hidden="true"></i></span></div>
-		<div class="container" style="display:none">
+		<div class="container">
 		<p>To try out one of our algorithms for yourself, download a sample dataset provided below! For <span class="function">DAME</span> or <span class="function">FLAME</span>,
 		please use one of the categorical covariate datasets and for <span class="function">MALTS</span> or <span class="function">AHB</span>, please use one of the mixed covariate datasets.</p>
 			<h2 class="underline">Categorical Covariates</h2>
@@ -103,20 +102,26 @@
 					<table class="table table-borderless" style="margin-bottom:15px;width:80%;margin-left:auto;margin-right:auto">
 						<tbody>
 						  <tr>
-							<td id="pic1" class="dataCat"> <a onclick="expand('sample1');permHover('pic1','txt1');collapseAll(['sample2','sample3','sample4']);hoverRemove(['pic2','txt2','pic3','txt3','pic4','txt4'])">
-							<img src="sheets.png" alt = "categorical1.csv"><a class="downloadBtn" href="data/categorical1.csv" download><i class="fa fa-download"></i> Download</a></a></td>
-							<td id="pic2" class="dataCat"> <a onclick="expand('sample2');permHover('pic2','txt2');collapseAll(['sample1','sample3','sample4']);hoverRemove(['pic1','txt1','pic3','txt3','pic4','txt4'])">
-							<img src="sheets.png" alt = "categorical1.csv"><a class="downloadBtn" href="data/categorical1.csv" download><i class="fa fa-download"></i> Download</a></a></td>
-							<td id="pic3" class="dataCat"> <a onclick="expand('sample3');permHover('pic3','txt3');collapseAll(['sample2','sample1','sample4']);hoverRemove(['pic1','txt1','pic2','txt2','pic4','txt4'])">
-							<img src="sheets.png" alt = "categorical1.csv"><a class="downloadBtn" href="data/categorical1.csv.csv" download><i class="fa fa-download"></i> Download</a></a></td>
-							<td id="pic4" class="dataCat"> <a onclick="expand('sample4');permHover('pic4','txt4');collapseAll(['sample2','sample1','sample3']);hoverRemove(['pic1','txt1','pic2','txt2','pic3','txt3'])">
-							<img src="sheets.png" alt = "categorical1.csv"><a class="downloadBtn" href="data/categorical1.csv.csv" download><i class="fa fa-download"></i> Download</a></a></td>
+							<td id="pic1" class="dataCat"> <a onclick="expand('sample1');permHover('pic1','txt1');collapseAll(['sample2','sample3']);hoverRemove(['pic2','txt2','pic3','txt3'])">
+								<img src="img/sheets.png" alt = "categorical1.csv"><a class="downloadBtn" href="data/categorical1.csv" download><i class="fa fa-download"></i> Download</a></a>
+							</td>
+							<td id="pic2" class="dataCat"> <a onclick="expand('sample2');permHover('pic2','txt2');collapseAll(['sample1','sample3']);hoverRemove(['pic1','txt1','pic3','txt3'])">
+								<img src="img/sheets.png" alt = "categorical1.csv"><a class="downloadBtn" href="data/categorical1.csv" download><i class="fa fa-download"></i> Download</a></a>
+							</td>
+							<td id="pic3" class="dataCat"> <a onclick="expand('sample3');permHover('pic3','txt3');collapseAll(['sample2','sample1']);hoverRemove(['pic1','txt1','pic2','txt2'])">
+								<img src="img/sheets.png" alt = "categorical1.csv"><a class="downloadBtn" href="data/categorical1.csv.csv" download><i class="fa fa-download"></i> Download</a></a>
+							</td>
 
 						  </tr><tr>
-						    <td id="txt1" class="dataCat"><a onclick="expand('sample1');permHover('pic1','txt1');collapseAll(['sample2','sample3','sample4']);hoverRemove(['pic2','txt2','pic3','txt3','pic4','txt4'])"><h5>Categorical Sample Data 1</h5></a></td>
-						    <td id="txt2" class="dataCat"><a onclick="expand('sample2');permHover('pic2','txt2');collapseAll(['sample1','sample3','sample4']);hoverRemove(['pic1','txt1','pic3','txt3','pic4','txt4'])"><h5>Categorical Sample Data 2</h5></a></td>
-						    <td id="txt3" class="dataCat"><a onclick="expand('sample3');permHover('pic3','txt3');collapseAll(['sample2','sample1','sample4']);hoverRemove(['pic1','txt1','pic2','txt2','pic4','txt4'])"><h5>Categorical Sample Data 3</h5></a></td>
-							<td id="txt4" class="dataCat"><a onclick="expand('sample4');permHover('pic4','txt4');collapseAll(['sample2','sample1','sample3']);hoverRemove(['pic1','txt1','pic2','txt2','pic3','txt3'])"><h5>Categorical Sample Data 4</h5></a></td>
+						    <td id="txt1" class="dataCat">
+								<a onclick="expand('sample1');permHover('pic1','txt1');collapseAll(['sample2','sample3']);hoverRemove(['pic2','txt2','pic3','txt3'])"><h5>Sample Data 1</h5></a>
+							</td>
+						    <td id="txt2" class="dataCat">
+								<a onclick="expand('sample2');permHover('pic2','txt2');collapseAll(['sample1','sample3']);hoverRemove(['pic1','txt1','pic3','txt3'])"><h5>Sample Data 2</h5></a>
+							</td>
+						    <td id="txt3" class="dataCat">
+								<a onclick="expand('sample3');permHover('pic3','txt3');collapseAll(['sample2','sample1']);hoverRemove(['pic1','txt1','pic2','txt2'])"><h5>Sample Data 3</h5></a>
+							</td>
 						  </tr>
 						</tbody>
 					</table>
@@ -488,128 +493,6 @@
 					</div>
 				</div>
 			</div>
-			<div id="sample4" class="container" style="display:none">
-				<div class="container box">
-				<p>Categorical Sample Data 4 was randomly generated, as a mock dataset. This section explain the dataset and its significance.
-				For example, this section might explain how the data was collected or why we are interested in it. Perhaps we could also provide the link to the paper(s)
-				which analyzed this data in the first place.</p> 
-					<h3>Preview <i id="plusPreview4" onclick="expand('preview4');minus(this.id)" class="fa fa-plus-square-o"></i></h3>
-					<div class="container">
-					<div id="preview4" style="display:none" class="previewContainer">
-					<div class="row">
-						<div class="col">
-						  <table class="table table-striped">
-							<thead>
-							  <tr style="text-align:center">
-							    <th>#</th>
-								<th>example_cov</th>
-								<th>example_cov</th>
-								<th>example_cov</th>
-								<th>example_cov</th>
-								<th>example_cov</th>
-								<th>example_cov</th>
-								<th>treated</span></th>
-								<th>outcome</span></th>
-							  </tr>
-							</thead>
-							<tbody style="height:10px;overflow:auto">
-							  <tr style="text-align:center">
-								<th>1</th>
-								<td>1</td>
-								<td>2</td>
-								<td>7</td>
-								<td>4</td>
-								<td>4</td>
-								<td>4</td>
-								<td>1</td>
-								<td>4.5</td>
-							  </tr><tr style="text-align:center">
-							    <th>2</th>
-								<td>2</td>
-								<td>3</td>
-								<td>5</td>
-								<td>4</td>
-								<td>4</td>
-								<td>7</td>
-								<td>0</td>
-								<td>3.33</td>
-							  </tr><tr style="text-align:center">
-							    <td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-								<td>...</td>
-							  </tr><tr style="text-align:center">
-							    <th>49</th>
-								<td>4</td>
-								<td>3</td>
-								<td>8</td>
-								<td>0</td>
-								<td>4</td>
-								<td>2</td>
-								<td>1</td>
-								<td>6</td>
-							  </tr><tr style="text-align:center">
-							    <th>50</th>
-								<td>2</td>
-								<td>4</td>
-								<td>6</td>
-								<td>0</td>
-								<td>4</td>
-								<td>1</td>
-								<td>1</td>
-								<td>6</td>
-							  </tr>
-							</tbody>
-						  </table>
-						</div>
-					</div>
-					</div>
-					</div>
-					<h3>Column Titles <i id="plusColumn4" onclick="expand('column4');minus(this.id)" class="fa fa-plus-square-o"></i></h3>
-					<div class="container">
-					<div id="column4" style="display:none" class="columnContainer">
-					<div class="row">
-						<div class="col">
-						  <table class="table table-striped" style="margin-top:15px;margin-bottom:15px;">
-							<tbody>
-							  <tr>
-								<td class="width:35%"><b>example_cov</b></td>
-								<td style="width:65%">Description of this covariate column.</td>
-							  </tr><tr>
-								<td><b>example_cov</b></td>
-								<td>Description of this covariate column.</td>
-							  </tr><tr>
-								<td><b>example_cov</b></td>
-								<td>Description of this covariate column.</td>
-							  </tr><tr>
-								<td><b>example_cov</b></td>
-								<td>Description of this covariate column.</td>
-							  </tr><tr>
-								<td><b>example_cov</b></td>
-								<td>Description of this covariate column.</td>
-							  </tr><tr>
-								<td><b>example_cov</b></td>
-								<td>Description of this covariate column.</td>
-							  </tr><tr>
-								<td><b>treated</b></td>
-								<td>Description of the treatment.</td>
-							  </tr><tr>
-								<td><b>outcome</b></td>
-								<td>Description of the outcome</td>
-							  </tr>
-							</tbody>
-						  </table>
-						</div>
-					</div>
-					</div>
-					</div>
-				</div>
-			</div>
 			<h2 class="underline" style="margin-top:15px;">Mixed Covariates</h2>
 			<div class="row">
 				<div class="col">
@@ -617,11 +500,11 @@
 						<tbody>
 						  <tr>
 							<td id="contPic1" class="dataCont"><a onclick="expand('contSample1');permHover('contPic1','contTxt1');collapseAll(['contSample2','contSample3']);hoverRemove(['contPic2','contTxt2','contPic3','contTxt3'])">
-							<img src="sheets.png" alt = "continuous1.csv"><a class="downloadBtn" href="data/continuous1.csv" download><i class="fa fa-download"></i> Download</a></a></td>
+							<img src="img/sheets.png" alt = "continuous1.csv"><a class="downloadBtn" href="data/continuous1.csv" download><i class="fa fa-download"></i> Download</a></a></td>
 							<td id="contPic2" class="dataCont"><a onclick="expand('contSample2');permHover('contPic2','contTxt2');collapseAll(['contSample1','contSample3']);hoverRemove(['contPic1','contTxt1','contPic3','contTxt3'])">
-							<img src="sheets.png" alt = "continuous1.csv"><a class="downloadBtn" href="data/continuous1.csv" download><i class="fa fa-download"></i> Download</a></a></td>
+							<img src="img/sheets.png" alt = "continuous1.csv"><a class="downloadBtn" href="data/continuous1.csv" download><i class="fa fa-download"></i> Download</a></a></td>
 							<td id="contPic3" class="dataCont"> <a onclick="expand('contSample3');permHover('contPic3','contTxt3');collapseAll(['contSample2','contSample1']);hoverRemove(['contPic1','contTxt1','contPic2','contTxt2'])">
-							<img src="sheets.png" alt = "continuous1.csv"><a class="downloadBtn" href="data/continuous1.csv" download><i class="fa fa-download"></i> Download</a></a></td>
+							<img src="img/sheets.png" alt = "continuous1.csv"><a class="downloadBtn" href="data/continuous1.csv" download><i class="fa fa-download"></i> Download</a></a></td>
 						  </tr><tr>
 						    <td id="contTxt1" class="dataCont"><a onclick="expand('contSample1');permHover('contPic1','contTxt1');collapseAll(['contSample2','contSample3']);hoverRemove(['contPic2','contTxt2','contPic3','contTxt3'])"><h5>Sample Data 1</h5></a></td>
 						    <td id="contTxt2" class="dataCont"><a onclick="expand('contSample2');permHover('contPic2','contTxt2');collapseAll(['contSample1','contSample3']);hoverRemove(['contPic1','contTxt1','contPic3','contTxt3'])"><h5>Sample Data 2</h5></td>
