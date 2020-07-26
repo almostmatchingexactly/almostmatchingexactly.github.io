@@ -439,10 +439,19 @@ tr[data-href] {
 .choosing thead:hover th{
 	background-color: rgba(0, 0, 0, 0.075);
 	cursor:pointer;
-}
+} 
 
 .choosing td {
 	margin-left:15px;
+}
+
+.choosing .fa-external-link {
+	opacity:0;
+	margin-left:0.3rem;
+}
+
+a:hover .fa-external-link {
+	opacity:1;
 }
 
 .choosingwidth {
