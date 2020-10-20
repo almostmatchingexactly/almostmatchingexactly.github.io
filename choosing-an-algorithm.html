@@ -1,3 +1,246 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Choosing an Algorithm</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  
+  <!--Additional custom styling -->
+  <link href="css/additional.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+<!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper"><div id="sidebar-content">
+	  <a href="index.html"><div class="sidebar-heading sidebar-heading-logo"><img class = "logo-alt2" src = "content/logos/logo_alt2.svg" alt = "duke logo"></div></a>
+      <div class="list-group list-group-flush">
+		<a href="about-us.html" class="list-group-item list-group-item-action bg-light">About Us</a>
+        <a href="choosing-an-algorithm.html" class="list-group-item list-group-item-action bg-light">Choosing an Algorithm</a>
+		<a id="flip" class="dropdown-btn list-group-item list-group-item-action bg-light" style="color:#495057">Getting Started<i class="fa fa-chevron-down" style="font-size:16px"></i></a>
+        <div id="flipped" class="dropdown-container">
+          <a href="dame.html" class="list-group-item list-group-item-action bg-light">DAME</a>
+          <a href="flame.html" class="list-group-item list-group-item-action bg-light">FLAME</a>
+          <a href="malts.html" class="list-group-item list-group-item-action bg-light">MALTS</a>
+		  <a href="ahb.html" class="list-group-item list-group-item-action bg-light">AHB</a>
+        </div>
+        <a href="tutorials.html" class="list-group-item list-group-item-action bg-light">Tutorials</a>
+        <a href="additional-resources.html" class="list-group-item list-group-item-action bg-light">Additional Resources</a>
+      </div>
+    </div></div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="navbar-toggler" id="menu-toggle" onclick="changeMenuText()"><span id="menuText"><span class="navbar-toggler-icon"></span></button>
+        <ul class="navbar-nav ml-auto mt-lg-0">
+          <a class="nav-link" href="https://github.com/almost-matching-exactly" target="_blank"><i class="fa fa-github"></i> Github</a>
+        </ul>
+      </nav>
+
+      <div class="container-fluid" style="padding-bottom: 50px">
+        <div class="banner"><h1 class="title mt-4">Choosing an Algorithm</h1></div>
+		  <div class="container">
+			<p>The Almost Matching Exactly Lab has produced four main algorithms for interpretable matching. 
+			Each algorithm has its own unique applications. 
+			Use the information below to decide which algorithm is right for you!</p>
+				<div class="col">
+				<div class="row row-choosing">
+				  <table class="table table-borderless choosing" style="margin-bottom:0px">
+					<thead style="border:1px solid #dee2e6;">
+					  <tr onclick="expand('dame');minus('plusDame')">
+						<th colspan='2'>DAME <span style="font-weight: normal">(Dynamic Almost Matching Exactly):</span><a class="choosingPlus"><i id="plusDame" class="fa fa-minus-square-o" style="font-size:1.6rem"></i></a></th>
+					  </tr>
+					</thead>
+				  </table><table class="table choosing" style="margin-top:0px;margin-bottom:15px">
+					<tbody id="dame" style="border-left:1px solid #dee2e6;border-right:1px solid #dee2e6;border-bottom: 1px solid #dee2e6">
+					  <tr>
+						<td class="choosingwidth choosingLeft">Languages:</td>
+						<td>Python</td>
+					  </tr><tr>
+						<td class="choosingLeft">Input Data:</td>
+						<td>Categorical covariates, small to moderately-sized datasets</td>
+					  </tr><tr>
+						<td class="choosingLeft">Matching Method:</td>
+						<td>Uses bit-vector computations to match units based on a learned, weighted Hamming distance</td>
+					  </tr><tr>
+						<td class="choosingLeft">Included Functions:</br><span style="font-weight:normal">(Python Package)</span></td>
+						<td><span class="function">DAME</span> returns all of the units that were matched and the covariates that they were matched on.<br>
+						<span class="function">mmg_of_unit</span> returns the main matched group of the specified unit.<br>
+						<span class="function">te_of_unit</span> returns the treatment effect for the specified unit.<br>
+						<span class="function">mmg_and_te_of_unit</span> returns both the main matched group and the treatment effect for the specified unit.</td>
+					  </tr>
+					  <tr>
+						  <td class="choosingLeft">Paper:</td>
+						  <td><a href="content/papers/DAME.pdf" target="_blank">Interpretable Almost Matching Exactly for Causal <span style="white-space: nowrap">Inference<sup><i class="fa fa-external-link"></i></sup></span></a></td>
+					  </tr>
+					</tbody>
+				  </table>
+				  <table class="table table-borderless choosing" style="margin-bottom:0px">
+					<thead style="border:1px solid #dee2e6;">
+					  <tr onclick="expand('flame');minus('plusFlame')">
+						<th>FLAME <span style="font-weight: normal">(Fast Large-Scale Almost Matching Exactly):</span><a class="choosingPlus"><i id="plusFlame" class="fa fa-minus-square-o" style="font-size:1.6rem"></i></a></th>
+					  </tr>
+					</thead>
+				  </table><table class="table choosing" style="margin-top:0px;margin-bottom:15px">
+					<tbody id="flame" style="border-left:1px solid #dee2e6;border-right:1px solid #dee2e6;border-bottom: 1px solid #dee2e6">
+					  <tr>
+						<td class="choosingwidth choosingLeft">Languages:</td>
+						<td>R, Python</td>
+					  </tr><tr>
+						<td class="choosingLeft">Input Data:</td>
+						<td>Categorical covariates, scales well to large datasets with millions of observations</td>
+					  </tr><tr>
+						<td class="choosingLeft">Matching Method:</td>
+						<td>Uses bit-vector computations to match units based on a learned, weighted Hamming distance. FLAME successively drops irrelevant covariates
+						to lessen the computational load while still maintaining enough covariates for high-quality conditional average treatment effect (CATE) estimation.</td>
+					  </tr><tr>
+						<td class="choosingLeft">Included Functions:</br><span style="font-weight:normal">(R Package)</span></td>
+						<td><span class="function">FLAME</span> returns the original data frame; indicating which units were matched, on what covariates, and how many times; 
+						a list of all matched groups formed; the CATE of every matched group; and a vector indicating which covariates were dropped at each iteration.<br>
+						<span class="function">gen_data</span> generates sample data for matching.<br>
+						<span class="function">CATE</span> returns the CATEs for the specified units.<br>
+						<span class="function">ATT</span> returns the average treatment effect on the treated (ATT) for a matched dataset.<br>
+						<span class="function">ATE</span> returns the average treatment effect (ATE) for a matched dataset.<br>
+						<span class="function">MG</span> returns the matched groups for the specified units.</td>
+					  </tr><tr>
+						<td class="choosingLeft">Included Functions:</br><span style="font-weight:normal">(Python Package)</span></td>
+						<td><span class="function">FLAME</span> returns all of the units that were matched and the covariates that they were matched on.<br>
+						<span class="function">mmg_of_unit</span> returns the main matched group of the specified unit.<br>
+						<span class="function">te_of_unit</span> returns the treatment effect for the specified unit.<br>
+						<span class="function">mmg_and_te_of_unit</span> returns both the main matched group and the treatment effect for the specified unit.</td>
+					  </tr><tr>
+						<td class="choosingLeft">Paper:</td>
+						<td><a href="content/papers/FLAME.pdf" target="_blank">FLAME: A Fast Large-scale Almost Matching Exactly Approach to Causal <span style="white-space:nowrap">Inference<sup><i class="fa fa-external-link"></i></sup></span></a></td>
+					</tr>
+					</tbody>
+				  </table>
+				  <table class="table table-borderless choosing" style="margin-bottom:0px">
+					<thead style="border:1px solid #dee2e6;">
+					  <tr onclick="expand('malts');minus('plusMalts')">
+						<th>MALTS <span style="font-weight: normal">(Matching After Learning to Stretch):</span><a class="choosingPlus"><i id="plusMalts" class="fa fa-minus-square-o" style="font-size:1.6rem"></i></a></th>
+					  </tr>
+					</thead>
+				  </table><table class="table choosing" style="margin-top:0px;margin-bottom:15px">
+					<tbody id="malts" style="border-left:1px solid #dee2e6;border-right:1px solid #dee2e6;border-bottom: 1px solid #dee2e6">
+					  <tr>
+						<td class="choosingwidth choosingLeft">Languages:</td>
+						<td>Python</td>
+					  </tr><tr>
+						<td class="choosingLeft">Input Data:</td>
+						<td>Continuous, categorical or mixed (continous or categorical) covariates</td>
+					  </tr><tr>
+						<td class="choosingLeft">Matching Method:</td>
+						<td>Uses exact matching for discrete variables and learned, generalized Mahalanobis distances for continuous variables. Instead of a predetermined distance metric, the covariates contributing more towards predicting the outcome are given higher weights.</td>
+					  </tr><tr>
+						<td class="choosingLeft">Included Functions:</br><span style="font-weight:normal">(Python Package)</span></td>
+						<td><span class="function">malts_mf</span> sets up the model for learning the distance metric.<br>
+						<span class="function">MG_matrix</span> returns a square matrix of size equal to the number of data entries. Entry (i,j) stores the weight of unit j in the matched group for unit i.<br>
+						<span class="function">CATE_df</span> returns a matrix containing the CATE estimations and standard deviations for every unit along with the treated and outcome columns.
+						</td>						
+					  </tr><tr>
+						<td class="choosingLeft">Paper:</td>
+						<td><a href="content/papers/MALTS.pdf" target="_blank">Matching After Learning To <span style="white-space: nowrap">Stretch<sup><i class="fa fa-external-link"></i></sup></span></a></td>
+					</tr>
+					</tbody>
+				  </table>
+				  <table class="table table-borderless choosing" style="margin-bottom:0px">
+					<thead style="border:1px solid #dee2e6;">
+					  <tr onclick="expand('ahb');minus('plusAhb')">
+						<th>AHB <span style="font-weight: normal">(Adaptive Hyper-box Matching):</span><a class="choosingPlus"><i id="plusAhb" class="fa fa-minus-square-o" style="font-size:1.6rem"></i></a></th>
+					  </tr>
+					</thead>
+				  </table><table class="table choosing" style="margin-top:0px;margin-bottom:15px">
+					<tbody id="ahb" style="width:100%;border-left:1px solid #dee2e6;border-right:1px solid #dee2e6;border-bottom: 1px solid #dee2e6">
+					  <tr>
+						<td class="choosingwidth choosingLeft">Languages:</td>
+						<td>R</td>
+					  </tr><tr>
+						<td class="choosingLeft">Input Data:</td>
+						<td>Continuous, categorical or mixed (continous or categorical) covariates</td>
+					  </tr><tr>
+						<td class="choosingLeft">Matching Method:</td>
+						<td>AHB matches units with others in unit-specific, hyper-box-shaped regions of the covariate space.The regions are found as either the solution to a mixed integer program, or using a (fast) approximation algorithm.
+						</td>
+					  </tr><tr>
+						<td class="choosingLeft">Included Functions:</br><span style="font-weight:normal">(R Package)</span></td>
+						<td><span class="function">AHB_fast_match</span> returns a list with five entries: data to be matched, units_id for each treated units, CATE for each matched group, bins for each hpyerbox, MGs (matched groups) for each treated units.<br>
+						<span class="function">AHB_MIP_match</span> returns a list with five entries: data to be matched, units_id for each treated units, CATE for each matched group, bins for each hpyerbox, MGs (matched groups) for each treated units.<br>
+						<span class="function">gen_data</span> generates sample data for matching.<br>
+						<span class="function">ATT</span> returns the average treatment effect on the treated (ATT) for a matched dataset.<br>
+						<span class="function">ATE</span> returns the average treatment effect (ATE) for a matched dataset.<br></td>
+					  </tr><tr>
+						<td class="choosingLeft">Paper:</td>
+						<td><a href="content/papers/AHB.pdf" target="_blank">Adaptive Hyper-box Matching for Interpretable Individualized Treatment Effect <span style="white-space:nowrap">Estimation<sup><i class="fa fa-external-link"></i></sup></span></a></td>
+					</tr>
+					</tbody>
+				  </table>
+				</div>
+				</div>
+				<h2 class="underline">Additional Algorithms</h2>
+				<div class="container">
+					<p>While not included in the FLAME packages, the <b>database implementation of FLAME</b> is extremely powerful for analyzing datasets which are too large to fit on memory.
+					The algorithm uses SQL queries to operate directly on the database and is specialized to be highly efficient. To use this algorithm,
+					visit the <a href="https://github.com/almost-matching-exactly/FLAME-Python2" target="_blank">almost-matching-exactly Github</a>.</p>
+					<p>Recommended for datasets with many features, the <b>Hybrid FLAME-DAME</b> algorithm uses FLAME to quickly remove less relevant features, 
+					and then switches to DAME to produce high-quality interpretable matches. This algorithm scales well without noticable loss in the quality of matches. 
+					To use this approach, install the FLAME Python package and read the Key Parameters section for information on how to implement the hybrid algorithm using the pre_dame parameter.</p>
+					<p>For the purpose of instrumental variable analysis, the <b>FLAME IV</b> algorithm yields high quality, interpretable matching outcomes using a learned, adaptive distance metric. 
+					Much like the traditional FLAME implementation, FLAME IV scales easily to large datasets. To use this approach, visit the
+					<a href="https://github.com/almost-matching-exactly/FLAMEIV" target="_blank">almost-matching-exactly Github</a>. To learn more about this implementation of FLAME,
+					click <a href="content/papers/FLAME-IV.pdf" target="_blank">here</a> to read the relevant paper (also available in 'Additional Resources').</p>
+					<p>Finally, the <b>FLAME Networks</b> algorithm leverages these same matching techniques to recover direct treatment effects from randomized experiments in which units interfere with each other.
+					The algorithm uses observed network interactions to account for treatment interference between units and outputs highly interpretable results. To use this approach, visit
+					<a href="https://github.com/vittorioorlandi/Network-FLAME" target="_blank">the author's Github</a>. To learn more about this implementation of FLAME,
+					click <a href="content/papers/FLAME-networks.pdf" target="_blank">here</a> to read the relevant paper (also available in 'Additional Resources').</p>
+				</div>
+			</div>
+		  </div>
+		</div>
+    </div>
+	
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+  
+  <!-- Additional Custom Script -->
+  <script src="js/additionaljs.js"></script>
+  
+</body>
+
+</html>
+=======
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,9 +308,8 @@
 				<div class="row row-choosing">
 				  <table class="table table-borderless choosing" style="margin-bottom:0px">
 					<thead style="border:1px solid #dee2e6;">
-					  <tr data-href="papers/DAME.pdf">
-						<th>DAME <span style="font-weight: normal">(Dynamic Almost Matching Exactly):</span></th>
-						<th style="vertical-align:middle"><span class="choosingLink">Learn More <i class="fa fa-lg fa-angle-double-right"></i></span></th>
+					  <tr onclick="expand('dame');minus('plusDame')">
+						<th colspan='2'>DAME <span style="font-weight: normal">(Dynamic Almost Matching Exactly):</span><a class="choosingPlus"><i id="plusDame" class="fa fa-minus-square-o" style="font-size:1.6rem"></i></a></th>
 					  </tr>
 					</thead>
 				  </table><table class="table choosing" style="margin-top:0px;margin-bottom:15px">
@@ -88,13 +330,16 @@
 						<span class="function">te_of_unit</span> returns the treatment effect for the specified unit.<br>
 						<span class="function">mmg_and_te_of_unit</span> returns both the main matched group and the treatment effect for the specified unit.</td>
 					  </tr>
+					  <tr>
+						  <td class="choosingLeft">Paper:</td>
+						  <td><a href="papers/DAME.pdf" target="_blank">Interpretable Almost Matching Exactly for Causal <span style="white-space: nowrap">Inference<sup><i class="fa fa-external-link"></i></sup></span></a></td>
+					  </tr>
 					</tbody>
 				  </table>
 				  <table class="table table-borderless choosing" style="margin-bottom:0px">
 					<thead style="border:1px solid #dee2e6;">
-					  <tr data-href="papers/FLAME.pdf">
-						<th>FLAME <span style="font-weight: normal">(Fast Large-Scale Almost Matching Exactly):</span></th>
-						<th style="vertical-align:middle"><span class="choosingLink">Learn More <i class="fa fa-lg fa-angle-double-right"></i></th>
+					  <tr onclick="expand('flame');minus('plusFlame')">
+						<th>FLAME <span style="font-weight: normal">(Fast Large-Scale Almost Matching Exactly):</span><a class="choosingPlus"><i id="plusFlame" class="fa fa-minus-square-o" style="font-size:1.6rem"></i></a></th>
 					  </tr>
 					</thead>
 				  </table><table class="table choosing" style="margin-top:0px;margin-bottom:15px">
@@ -124,14 +369,16 @@
 						<span class="function">mmg_of_unit</span> returns the main matched group of the specified unit.<br>
 						<span class="function">te_of_unit</span> returns the treatment effect for the specified unit.<br>
 						<span class="function">mmg_and_te_of_unit</span> returns both the main matched group and the treatment effect for the specified unit.</td>
-					  </tr>
+					  </tr><tr>
+						<td class="choosingLeft">Paper:</td>
+						<td><a href="papers/FLAME.pdf" target="_blank">FLAME: A Fast Large-scale Almost Matching Exactly Approach to Causal <span style="white-space:nowrap">Inference<sup><i class="fa fa-external-link"></i></sup></span></a></td>
+					</tr>
 					</tbody>
 				  </table>
 				  <table class="table table-borderless choosing" style="margin-bottom:0px">
 					<thead style="border:1px solid #dee2e6;">
-					  <tr data-href="papers/MALTS.pdf">
-						<th>MALTS <span style="font-weight: normal">(Matching After Learning to Stretch):</span></th>
-						<th style="vertical-align:middle"><span class="choosingLink">Learn More <i class="fa fa-lg fa-angle-double-right"></i></th>
+					  <tr onclick="expand('malts');minus('plusMalts')">
+						<th>MALTS <span style="font-weight: normal">(Matching After Learning to Stretch):</span><a class="choosingPlus"><i id="plusMalts" class="fa fa-minus-square-o" style="font-size:1.6rem"></i></a></th>
 					  </tr>
 					</thead>
 				  </table><table class="table choosing" style="margin-top:0px;margin-bottom:15px">
@@ -147,21 +394,20 @@
 						<td>Uses exact matching for discrete variables and learned, generalized Mahalanobis distances for continuous variables. Instead of a predetermined distance metric, the covariates contributing more towards predicting the outcome are given higher weights.</td>
 					  </tr><tr>
 						<td class="choosingLeft">Included Functions:</br><span style="font-weight:normal">(Python Package)</span></td>
-						<td><span class="function">malts_mf</span> sets up the model from which further interpretation can be done.<br>
-						<span class="function">MG_matrix</span> returns a square matrix of size equal to the number of data entries. Entry (i,j) stores the weight of data entry 'j' in the matched group for data entry 'i'.<br>
-						<span class="function">CATE_df</span> returns a matrix where the average CATE value, the standard deviation of CATE can be found out, along with the outcome.<br>
-						<span class="function">ATE</span> The Average Treatment Effect (ATE) can be found by averaging the 'avg.CATE' column in the <span class="function">CATE_df</span> matrix.<br>
-						<span class="function">ATT</span> The Average Treatment Effect on the Treated (ATT) can be found by averaging the 'avg.CATE' column in the <span class="function">CATE_df</span> matrix for those indices where the 'treated' column is 1 (the treated units).<br>
-						<span class="function">te_of_unit</span>The 'avg.CATE' column for a particular index in the <span class="function">CATE_df</span> matrix denotes the treatment effect on that particular unit.
+						<td><span class="function">malts_mf</span> sets up the model for learning the distance metric.<br>
+						<span class="function">MG_matrix</span> returns a square matrix of size equal to the number of data entries. Entry (i,j) stores the weight of unit j in the matched group for unit i.<br>
+						<span class="function">CATE_df</span> returns a matrix containing the CATE estimations and standard deviations for every unit along with the treated and outcome columns.
 						</td>						
-					  </tr>
+					  </tr><tr>
+						<td class="choosingLeft">Paper:</td>
+						<td><a href="papers/MALTS.pdf" target="_blank">Matching After Learning To <span style="white-space: nowrap">Stretch<sup><i class="fa fa-external-link"></i></sup></span></a></td>
+					</tr>
 					</tbody>
 				  </table>
 				  <table class="table table-borderless choosing" style="margin-bottom:0px">
 					<thead style="border:1px solid #dee2e6;">
-					  <tr data-href="papers/AHB.pdf">
-						<th>AHB <span style="font-weight: normal">(Adaptive Hyper-box Matching):</span></th>
-						<th style="vertical-align:middle"><span class="choosingLink">Learn More <i class="fa fa-lg fa-angle-double-right"></i></th>
+					  <tr onclick="expand('ahb');minus('plusAhb')">
+						<th>AHB <span style="font-weight: normal">(Adaptive Hyper-box Matching):</span><a class="choosingPlus"><i id="plusAhb" class="fa fa-minus-square-o" style="font-size:1.6rem"></i></a></th>
 					  </tr>
 					</thead>
 				  </table><table class="table choosing" style="margin-top:0px;margin-bottom:15px">
@@ -183,7 +429,10 @@
 						<span class="function">gen_data</span> generates sample data for matching.<br>
 						<span class="function">ATT</span> returns the average treatment effect on the treated (ATT) for a matched dataset.<br>
 						<span class="function">ATE</span> returns the average treatment effect (ATE) for a matched dataset.<br></td>
-					  </tr>
+					  </tr><tr>
+						<td class="choosingLeft">Paper:</td>
+						<td><a href="papers/AHB.pdf" target="_blank">Adaptive Hyper-box Matching for Interpretable Individualized Treatment Effect <span style="white-space:nowrap">Estimation<sup><i class="fa fa-external-link"></i></sup></span></a></td>
+					</tr>
 					</tbody>
 				  </table>
 				</div>
@@ -202,7 +451,7 @@
 					click <a href="papers/FLAME-IV.pdf" target="_blank">here</a> to read the relevant paper (also available in 'Additional Resources').</p>
 					<p>Finally, the <b>FLAME Networks</b> algorithm leverages these same matching techniques to recover direct treatment effects from randomized experiments in which units interfere with each other.
 					The algorithm uses observed network interactions to account for treatment interference between units and outputs highly interpretable results. To use this approach, visit
-					<a href="https://github.com/vittorioorlandi/Network-FLAME" target="_blank">the author's Github</a>. To learn more about this implementation of FLAME,
+					<a href="https://github.com/almost-matching-exactly/AME-Networks" target="_blank">the author's Github</a>. To learn more about this implementation of FLAME,
 					click <a href="papers/FLAME-networks.pdf" target="_blank">here</a> to read the relevant paper (also available in 'Additional Resources').</p>
 				</div>
 			</div>
@@ -233,3 +482,4 @@
 </body>
 
 </html>
+>>>>>>> 7c14b3f64a7c18973cd5de514a738977126994d3
